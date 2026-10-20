@@ -282,3 +282,8 @@ main{grid-template-columns:204px minmax(0,1fr)}
  .move-row .type-icon{display:none}
  footer{padding:12px;font-size:9px;letter-spacing:.5px}
 }
+
+/* v1.2.1: center the sticky Pokemon identity as one compact group */
+.mini-pokemon-inner{width:max-content;max-width:100%;margin:0 auto;padding:5px 14px;justify-content:center;gap:12px}
+.mini-pokemon-id{margin-left:12px}
+@media(max-width:540px){.mini-pokemon-inner{width:100%;max-width:440px;justify-content:center;padding:5px 10px;gap:8px}.mini-pokemon-id{margin-left:4px}}
