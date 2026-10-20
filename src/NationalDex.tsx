@@ -12,7 +12,8 @@ const regions:Region[]=[
 {id:'kalos',name:'Kalos',generation:'Generation VI',from:650,to:721},
 {id:'alola',name:'Alola',generation:'Generation VII',from:722,to:809},
 {id:'galar',name:'Galar / Hisui',generation:'Generation VIII',from:810,to:905},
-{id:'paldea',name:'Paldea',generation:'Generation IX',from:906,to:1025}
+{id:'paldea',name:'Paldea',generation:'Generation IX',from:906,to:1025},
+{id:'new',name:'Neuere Pokémon',generation:'Weitere Einträge',from:1026,to:99999}
 ];
 const batch=36;
 const fmt=(id:number)=>'#'+String(id).padStart(4,'0');
@@ -23,7 +24,7 @@ const artwork=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/ma
 function DexSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[...(id<=649?[animated(id)]:[]),showdown(name),still(id),artwork(id)],[id,name]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);return <img src={sources[Math.min(index,sources.length-1)]} alt="" loading="lazy" onError={()=>setIndex(old=>Math.min(old+1,sources.length-1))}/>}
 export default function NationalDex({list,names,onSelect}:{list:{name:string;url:string}[];names:Record<number,string>;onSelect:(id:number)=>void}){
 const [region,setRegion]=useState('all');const [search,setSearch]=useState('');const [visible,setVisible]=useState(batch);const sentinel=useRef<HTMLDivElement|null>(null);
-const items=useMemo<Entry[]>(()=>list.map((p,i)=>({id:i+1,name:p.name})),[list]);
+const items=useMemo<Entry[]>(()=>list.map((p,i)=>({id:Number(p.url.match(/\\/pokemon-species\\/(\\d+)\\//)?.[1])||i+1,name:p.name})).sort((a,b)=>a.id-b.id),[list]);
 const filtered=useMemo(()=>items.filter(p=>{const area=regions.find(r=>p.id>=r.from&&p.id<=r.to);if(region!=='all'&&area?.id!==region)return false;const q=search.trim().toLocaleLowerCase('de-DE');return !q||(names[p.id]||p.name).toLocaleLowerCase('de-DE').includes(q)||p.name.includes(q)||String(p.id)===q||fmt(p.id).includes(q)}),[items,region,search,names]);
 useEffect(()=>setVisible(batch),[region,search]);
 useEffect(()=>{const node=sentinel.current;if(!node||visible>=filtered.length)return;const observer=new IntersectionObserver(entries=>{if(entries[0]?.isIntersecting)setVisible(n=>Math.min(n+batch,filtered.length))},{rootMargin:'550px 0px'});observer.observe(node);return()=>observer.disconnect()},[visible,filtered.length,region,search]);
