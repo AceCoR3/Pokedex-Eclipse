@@ -586,3 +586,16 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
  .profile-attacks .profile-move-row>*:nth-child(4){display:flex!important;justify-content:flex-end;text-align:right}
  .profile-attacks .move-row.move-header{display:none!important}
 }
+
+/* Attack database: German type-colored TM/CD tiles */
+.attackdex .attack-list.attack-list-colored{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:10px}
+.attackdex .attack-list-colored .attack-list-card{min-width:0;min-height:66px;display:flex;align-items:center;gap:10px;text-align:left;padding:10px 12px;background:linear-gradient(105deg,color-mix(in srgb,var(--attack-color) 23%,#16191F),#16191F 75%);border:1px solid color-mix(in srgb,var(--attack-color) 45%,#36333A);border-left:3px solid var(--attack-color);border-radius:11px;color:#F5F5F5}
+.attackdex .attack-list-colored .attack-list-card:hover{border-color:var(--attack-color);background:linear-gradient(105deg,color-mix(in srgb,var(--attack-color) 32%,#16191F),#1C1D22 80%);transform:translateY(-1px)}
+.attackdex .attack-disc{display:flex;flex:none;width:36px;height:36px;align-items:center;justify-content:center;filter:drop-shadow(0 2px 4px #0008)}
+.attackdex .attack-list-copy{display:flex;flex-direction:column;align-items:flex-start;gap:3px;flex:1;min-width:0}
+.attackdex .attack-list-copy strong{font-size:12px;line-height:1.25;overflow-wrap:anywhere;text-transform:none}
+.attackdex .attack-list-copy .attack-list-number{font-size:9px;color:#A6A8B3}
+.attackdex .attack-list-type{font-size:10px;font-weight:700;color:#121317;background:var(--attack-color);border-radius:5px;padding:5px 7px;white-space:nowrap}
+.attackdex .attack-list-card>svg:last-child{flex:none;color:#B7B9C2}
+@media(max-width:600px){.attackdex .attack-list.attack-list-colored{grid-template-columns:1fr 1fr;gap:7px}.attackdex .attack-list-colored .attack-list-card{padding:8px;gap:6px;min-height:60px}.attackdex .attack-disc,.attackdex .attack-disc svg{width:27px;height:27px}.attackdex .attack-list-type{display:none}.attackdex .attack-list-copy strong{font-size:10px}.attackdex .attack-list-card>svg:last-child{width:13px}}
+@media(max-width:380px){.attackdex .attack-list.attack-list-colored{grid-template-columns:1fr}}
