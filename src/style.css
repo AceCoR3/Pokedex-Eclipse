@@ -704,3 +704,11 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 .abilitydex .ability-pokemon-grid .ability-pokemon-card:hover{border-color:#e53935}
 .abilitydex .ability-pokemon-id{align-self:flex-start}
 @media(max-width:640px){.abilitydex .ability-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.abilitydex .ability-pokemon-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.abilitydex .ability-grid .ability-card{padding:12px;min-height:136px}}
+
+/* Encounter Atlas: clearly distinguish official records from missing coverage */
+.encounter-source-status{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px;font-size:11px;font-weight:600;letter-spacing:.3px}
+.encounter-source-status span{display:inline-flex;align-items:center;border:1px solid #343943;border-radius:7px;padding:8px 11px}
+.encounter-source-ok{color:#9fe1bb;background:#15251c;border-color:#305741!important}
+.encounter-source-extra{color:#f0d3a0;background:#2b2417;border-color:#594729!important}
+.encounter-source-missing{color:#bfc3cf;background:#1b1e26}
+.encounter-atlas .encounter-unavailable strong{color:#f5f5f5}
