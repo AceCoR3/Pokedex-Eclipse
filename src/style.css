@@ -534,3 +534,6 @@ main{grid-template-columns:204px minmax(0,1fr)}
 @media(max-width:900px){.hero{min-height:430px!important}.hero .pokemon-stage{min-height:220px}}
 @media(max-width:600px){.hero{min-height:385px!important;overflow:visible}.hero .pokemon-stage{min-height:185px}.hero .hero-bottom{align-items:flex-start;gap:10px}.hero .hero-bottom>div:first-child{flex-basis:100%}.hero .hero-bottom .shiny{margin:0;align-self:flex-start}.hero .hero-bottom h1{margin:5px 0 8px}}
 @media(max-width:390px){.hero{min-height:365px!important}.hero .pokemon-stage{min-height:170px}}
+
+/* Static sprites across the entire Pokédex: no artificial floating animations */
+.hero-sprite.sprite-artwork,.hunt-sprite.hunt-hd{animation:none!important;transform:none!important;image-rendering:auto}
