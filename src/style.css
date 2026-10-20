@@ -453,3 +453,37 @@ main{grid-template-columns:204px minmax(0,1fr)}
 
 /* Dual-type calculator – consistent with Pokémon profile type palette */
 .tc-dual-panel{background:#14161d;border:1px solid #30343e;border-radius:15px;padding:22px;margin:0 0 20px}.tc-dual-heading h2{font-family:'Chakra Petch',sans-serif;color:#f5f5f8;font-size:22px;margin:7px 0}.tc-dual-heading p{font-size:12px;color:#a4aabb;line-height:1.6;margin:0 0 20px}.tc-dual-inputs{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.tc-dual-field{display:flex;flex-direction:column;gap:9px;flex:1 1 220px;min-width:180px}.tc-dual-field>span{font-size:10px;letter-spacing:.13em;color:#aeb4c2;font-weight:700}.tc-dual-select{display:flex;align-items:center;gap:10px;border:1px solid #454a58;background:#20232c;border-radius:10px;padding:7px 11px}.tc-dual-select select{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#f3f4f7;font:600 13px 'Chakra Petch',sans-serif;cursor:pointer}.tc-dual-select select option{background:#1d2029;color:#fff}.tc-dual-preview,.tc-row-icon,.tc-dual-chip-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:7px;width:30px;height:30px;color:#fff}.tc-dual-preview img,.tc-row-icon img,.tc-dual-chip-icon img{width:18px;height:18px}.tc-dual-clear{background:#242833;color:#cdd2de;border:1px solid #454a58;border-radius:9px;padding:11px 15px;cursor:pointer;font-size:12px}.tc-dual-summary{margin-top:22px;border-top:1px solid #30343e;padding-top:18px}.tc-dual-summary-title{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#f5f5f7;font-size:13px}.tc-dual-summary-title>span{color:#abb4c4;font-size:12px}.tc-dual-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:16px}.tc-dual-group{background:#101218;border:1px solid #2b303b;border-radius:11px;padding:13px}.tc-dual-group h3{font-size:12px;font-family:'Chakra Petch',sans-serif;color:#f2f3f6;margin:0 0 12px}.tc-dual-group h3 small{color:#a1a8b7}.tc-dual-chips{display:flex;flex-wrap:wrap;gap:7px}.tc-dual-chip{display:flex;align-items:center;gap:7px;border:1px solid #383e49;background:#1b1e26;border-radius:8px;padding:5px 9px 5px 5px;color:#e6e9f0;font-size:11px}.tc-dual-chip-icon{width:25px;height:25px}.tc-dual-chip-icon img{width:15px;height:15px}.tc-dual-chip b{color:#b5bccb;margin-left:4px}.tc-dual-chip b.tc-damage-high{color:#ffb0a4}.tc-dual-chip b.tc-damage-low{color:#83e0b7}.tc-dual-empty{font-size:12px;color:#7e8797}.tc-row-icon{width:24px;height:24px;border-radius:6px}.tc-row-icon img{width:15px;height:15px}.tc-head img{width:24px;height:24px;padding:4px;border-radius:6px;background:#2b2f39}.tc-head span{font-size:10px}@media(max-width:650px){.tc-dual-panel{padding:15px}.tc-dual-groups{grid-template-columns:1fr}.tc-dual-field{flex-basis:100%}}
+
+/* Mobile type chart: all 18 matchups fit the phone width without sideways scrolling. */
+@media (max-width:700px){
+ .typechart-page{min-width:0;width:100%;overflow:hidden}
+ .typechart-scroller{width:100%;max-width:100%;overflow-x:hidden;overflow-y:visible;border-radius:9px}
+ .typechart-table{width:100%!important;min-width:0!important;max-width:100%;table-layout:fixed;border-spacing:1px;padding:2px;font-size:8px}
+ .typechart-table th,.typechart-table td{min-width:0!important;width:auto!important;max-width:none;padding:0!important}
+ .typechart-table thead th{height:24px;vertical-align:middle}
+ .typechart-table tbody th{width:27px!important;min-width:27px!important;max-width:27px!important;left:0}
+ .typechart-table td{height:19px!important}
+ .typechart-table .tc-corner{width:27px!important;min-width:27px!important;max-width:27px!important;font-size:0!important;overflow:hidden}
+ .typechart-table .tc-corner::after{content:'⚔';font-size:12px;display:block;text-align:center}
+ .typechart-table .tc-type{padding:0!important;gap:0;min-width:0;width:100%;justify-content:center}
+ .typechart-table .tc-head{height:22px;display:flex;align-items:center;justify-content:center}
+ .typechart-table .tc-head img{width:17px;height:17px;padding:2px;border-radius:4px}
+ .typechart-table .tc-head span,.typechart-table .tc-rowhead>span:last-child{display:none}
+ .typechart-table .tc-rowhead{min-width:0;height:19px}
+ .typechart-table .tc-row-icon{width:17px;height:17px;border-radius:4px}
+ .typechart-table .tc-row-icon img{width:12px;height:12px}
+ .typechart-table .tc-v{width:100%;height:18px;min-width:0;line-height:18px;border-radius:2px;font-size:8px;letter-spacing:-.5px}
+ .typechart-table .tc-neutral{color:#626775}
+ .typechart-intro{margin:14px 0}
+ .typechart-legend{padding:9px;gap:7px;margin-bottom:12px}
+ .typechart-legend>span{font-size:10px}
+ .typechart-legend .tc-v{width:27px;min-width:27px;height:23px}
+}
+@media(max-width:360px){
+ .typechart-table{border-spacing:0;padding:1px}
+ .typechart-table .tc-v{font-size:7px}
+ .typechart-table tbody th,.typechart-table .tc-corner{width:22px!important;min-width:22px!important;max-width:22px!important}
+ .typechart-table .tc-head img{width:14px;height:14px}
+ .typechart-table .tc-row-icon{width:14px;height:14px}
+ .typechart-table .tc-row-icon img{width:11px;height:11px}
+}
