@@ -407,3 +407,12 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .encounter-svg-node:focus .encounter-svg-halo{stroke:#fff;stroke-width:3}
 .encounter-schematic-note{font-size:10px;line-height:1.5;color:#aeb6c3;margin:10px 7px 3px}
 @media(prefers-reduced-motion:reduce){.encounter-svg-halo,.encounter-svg-dot{animation:none}}
+
+/* v1.9 licensed world map viewer */
+.encounter-map-switch{display:flex;gap:7px}
+.encounter-map-switch button{border:1px solid #454a54;background:#20242b;color:#b9c0cb;border-radius:8px;padding:9px 13px;font:inherit;font-size:11px;cursor:pointer}
+.encounter-map-switch button.selected{background:#e4e8ed;color:#171a20;border-color:#e4e8ed;font-weight:700}
+.encounter-world{min-height:240px}
+.encounter-world img{image-rendering:pixelated}
+.encounter-world-caption{position:absolute;left:10px;top:10px;display:grid;gap:4px;max-width:calc(100% - 20px);padding:9px 12px;border:1px solid #7e8996;background:#111722db;color:#fff;border-radius:9px;font-size:13px;font-weight:700}
+.encounter-world-caption small{font-size:10px;color:#d4dce6;font-weight:400}
