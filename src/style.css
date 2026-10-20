@@ -442,3 +442,8 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .route-explorer-pokemon>div{min-width:0;display:grid;gap:3px}.route-explorer-pokemon small{font-size:10px;color:#9fb0c0}.route-explorer-pokemon strong{font-size:12px;overflow-wrap:anywhere}
 .route-explorer-mon{display:flex!important;align-items:center;gap:5px}.route-explorer-mon img{width:42px;height:42px;image-rendering:pixelated}.route-explorer-mon>div{display:grid;gap:3px}
 @media(max-width:760px){.route-explorer-body{grid-template-columns:1fr}.route-explorer-controls{grid-template-columns:1fr 1fr}.route-explorer-controls label:last-child{grid-column:1/-1}.route-explorer-pokemon{grid-template-columns:minmax(100px,1.2fr) minmax(75px,1fr) 50px 65px;gap:4px}.route-explorer-pokemon strong{font-size:11px}.route-explorer-mon img{width:35px;height:35px}}
+
+/* Edition-specific unavailable encounter state */
+.encounter-unavailable{padding:24px 20px;margin:16px 0;border:1px solid rgba(160,170,190,.18);border-radius:14px;background:rgba(120,135,165,.07);text-align:center}
+.encounter-unavailable-title{font-size:1.25rem;font-weight:800;letter-spacing:.02em;margin-bottom:10px}
+.encounter-unavailable p{max-width:590px;margin:0 auto;color:var(--muted,#a6adbb);font-size:.9rem;line-height:1.7}
