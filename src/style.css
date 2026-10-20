@@ -559,3 +559,30 @@ header{background:#0E1014;border-bottom:1px solid #30252A}
 .welcome em{color:var(--pd-red)}
 button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 @media(max-width:850px){.nav.active{box-shadow:inset 0 -3px 0 var(--pd-red)}}
+
+/* PokéDexion: profile-only German move list with type-colored TM discs */
+.profile-attacks .profile-move-table{display:block;overflow-x:auto;border:1px solid #343038;border-radius:12px}
+.profile-attacks .profile-move-row{display:grid!important;grid-template-columns:minmax(170px,1.7fr) minmax(92px,.8fr) minmax(75px,.7fr) minmax(55px,.45fr) minmax(90px,.7fr) minmax(125px,1fr)!important;gap:10px;align-items:center;min-width:720px;padding:10px 13px!important;background:linear-gradient(90deg,color-mix(in srgb,var(--move-color) 23%,#14161B),#14161B 64%)!important;border-left:3px solid var(--move-color);border-bottom:1px solid #36313A}
+.profile-attacks .profile-move-row:hover{background:linear-gradient(90deg,color-mix(in srgb,var(--move-color) 35%,#14161B),#1D1D22 75%)!important}
+.profile-attacks .profile-move-row>*{display:flex!important;min-width:0}
+.profile-attacks .profile-move-name{align-items:center;gap:10px}
+.profile-attacks .profile-move-name strong{color:#F5F5F5;font-size:12px;line-height:1.3;overflow-wrap:anywhere}
+.profile-attacks .profile-move-disc{display:inline-flex;flex:none;width:40px;height:40px;align-items:center;justify-content:center;filter:drop-shadow(0 2px 5px #0008)}
+.profile-attacks .profile-move-row .type{color:#111;font-weight:700;white-space:nowrap}
+.profile-attacks .move-value,.profile-attacks .move-class{color:#E5E5E8}
+.profile-attacks .move-learn-method{display:flex!important;flex-wrap:wrap;align-items:center;gap:5px;justify-content:flex-start!important}
+.profile-attacks .profile-move-pp{color:#F5F5F5;font-weight:700;font-size:10px;white-space:nowrap}
+.profile-attacks .move-row.move-header{display:grid!important;grid-template-columns:minmax(170px,1.7fr) minmax(92px,.8fr) minmax(75px,.7fr) minmax(55px,.45fr) minmax(90px,.7fr) minmax(125px,1fr)!important;min-width:720px;padding:12px 13px!important;background:#242126!important}
+@media(max-width:750px){
+ .profile-attacks .profile-move-table{overflow-x:visible;border:0}
+ .profile-attacks .profile-move-row{min-width:0!important;grid-template-columns:minmax(0,1.45fr) minmax(0,.85fr) minmax(0,.55fr)!important;gap:6px;padding:9px 7px!important;border:1px solid #36313A;border-left:3px solid var(--move-color);border-radius:9px;margin-bottom:7px}
+ .profile-attacks .profile-move-row>*:nth-child(3),.profile-attacks .profile-move-row>*:nth-child(5),.profile-attacks .profile-move-row>*:nth-child(6){display:none!important}
+ .profile-attacks .profile-move-name{gap:6px}
+ .profile-attacks .profile-move-disc{width:29px;height:29px}
+ .profile-attacks .profile-move-disc svg{width:29px;height:29px}
+ .profile-attacks .profile-move-name strong{font-size:10px}
+ .profile-attacks .profile-move-row .type{font-size:9px;padding:5px 6px}
+ .profile-attacks .profile-move-row .type-icon{display:none}
+ .profile-attacks .profile-move-row>*:nth-child(4){display:flex!important;justify-content:flex-end;text-align:right}
+ .profile-attacks .move-row.move-header{display:none!important}
+}
