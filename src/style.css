@@ -138,3 +138,147 @@ html,body,#root,.app,.app *,button,input,textarea,select{font-family:'Chakra Pet
 .variety-card img{width:88px;height:88px;object-fit:contain;image-rendering:pixelated}
 .variety-card strong{font-size:12px;text-align:center}.variety-card small{font-size:10px;color:#989ca6;text-align:center;overflow-wrap:anywhere}
 @media(max-width:600px){.variety-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}.variety-card img{width:70px;height:70px}}
+
+/* v1.2 compact responsive layout + sticky Pokemon identity */
+:root{scroll-padding-top:80px}
+header{height:62px;padding:0 28px}
+main{grid-template-columns:204px minmax(0,1fr)}
+.sidebar{padding:20px 12px;gap:3px;min-height:calc(100vh - 110px)}
+.side-label{margin-bottom:10px;padding:0 12px}
+.nav{padding:11px 12px;font-size:12px;gap:10px}
+.side-bottom{padding:12px 8px}.side-bottom p{margin:4px 0}
+.content{padding:22px clamp(16px,3vw,44px) 36px}
+.topline{margin-bottom:16px;letter-spacing:1px}
+.hero{height:390px;padding:20px 25px}
+.hero-sprite{width:195px;height:195px}
+.hero h1,.listhead h1{font-size:clamp(28px,3.8vw,43px);letter-spacing:-1px}
+.hero h1{margin:4px 0 10px}
+.controls{margin:12px 0 17px}
+.details,.profile-extras{gap:12px}
+.profile-extras{margin-top:12px}
+.panel{padding:17px;border-radius:11px}
+.panelhead{margin-bottom:13px;font-size:10px}
+.facts div{gap:5px}
+.stat{margin:7px 0}
+.dex-entry{font-size:14px;line-height:1.6}
+.evo-card{padding:10px;min-width:115px}
+.evo-card img{height:66px;width:66px}
+.variety-card{padding:10px 8px;gap:5px}
+.variety-card img{width:70px;height:70px}
+.move-row{padding:9px 12px}
+.welcome{padding:8px 0 14px}
+.welcome h1{font-size:clamp(30px,4vw,48px)}
+.daily{height:225px;padding:22px}
+.daily h2{font-size:clamp(23px,3vw,35px);margin:10px 0 6px}
+.category-title{margin-top:14px}
+.pokegrid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:9px}
+.pokecard{padding:11px;gap:6px;border-radius:10px}
+.pokecard img{height:78px;width:78px}
+.pokecard strong{font-size:12px}
+.searchbox{padding:11px 14px;margin:16px 0}
+.dex-region{margin-bottom:22px}
+.dex-region-head{padding:8px 0 12px;margin-bottom:12px}
+.attack-list{grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:8px}
+.attack-list button{padding:12px}
+.attack-hero{padding:20px}
+.attack-fact{padding:13px}
+.attack-panel{margin-bottom:12px}
+.mini-pokemon{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,15,19,.96);border-bottom:1px solid color-mix(in srgb,var(--mini-color) 45%,#35373d);backdrop-filter:blur(16px);box-shadow:0 7px 24px #0006}
+.mini-pokemon-inner{max-width:1550px;margin:auto;min-height:56px;padding:5px 25px;display:flex;align-items:center;gap:12px}
+.mini-pokemon-sprite{width:45px;height:45px;object-fit:contain;image-rendering:pixelated}
+.mini-pokemon-name{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-pokemon-form{font-size:11px;color:#a6a9b2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mini-pokemon-id{margin-left:auto;color:#b7bac3;font-size:12px;white-space:nowrap}
+.mini-pokemon button{border:1px solid #41444b;border-radius:8px;background:#262830;color:#fff;width:34px;height:34px;flex-shrink:0}
+@media(max-width:850px){
+ main{display:block}
+ header{height:55px;padding:0 14px}
+ .sidebar{min-height:0;padding:7px 10px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;overflow:visible}
+ .sidebar .nav{min-width:0;white-space:normal;justify-content:center;flex-direction:column;text-align:center;gap:5px;padding:8px 3px;font-size:10px;line-height:1.15}
+ .sidebar .nav svg{width:17px;height:17px;flex-shrink:0}
+ .content{padding:14px 13px 28px}
+ .topline{margin-bottom:11px}
+ .hero{height:345px;padding:17px}
+ .hero-sprite{height:175px;width:175px}
+ .details{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .panel{padding:13px}
+ .mini-pokemon-inner{padding:5px 12px;min-height:51px}
+ .mini-pokemon-sprite{height:40px;width:40px}
+ .mini-pokemon-name{font-size:13px}
+ .pokegrid{grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:8px}
+ .pokecard img{width:72px;height:72px}
+ .welcome{padding:4px 0 12px}
+ .daily{height:190px;padding:15px}
+ .region-chips{display:none}
+ .dex-toolbar{margin:12px 0}
+ .dex-region-head h2{font-size:23px}
+ .move-table{overflow:visible}
+ .move-row{min-width:0;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.7fr);gap:6px;padding:10px 8px}
+ .move-row>*:nth-child(3),.move-row>*:nth-child(5),.move-row>*:nth-child(6){display:none}
+ .move-row>*:nth-child(4){text-align:right}
+ .move-row .type{padding:4px 5px;font-size:9px}
+ .attack-list{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+ .attack-facts{gap:7px}
+ .attack-fact{padding:11px}
+}
+@media(max-width:540px){
+ .brand{font-size:12px;letter-spacing:.5px;gap:6px}
+ .brandmark{font-size:21px}
+ .iconbtn{height:34px;width:34px}
+ .headright{gap:8px}
+ .topline{font-size:9px;letter-spacing:.4px}
+ .topline>span:last-child{display:none}
+ .hero{height:310px;padding:13px}
+ .hero-sprite{width:150px;height:150px}
+ .hero h1{font-size:30px}
+ .hero .index{font-size:11px}
+ .hero-bottom{gap:8px}
+ .shiny{font-size:9px;padding:7px}
+ .types{gap:4px;flex-wrap:wrap}
+ .type{font-size:9px;padding:5px 7px}
+ .details{grid-template-columns:1fr}
+ .panel{padding:13px}
+ .panelhead{margin-bottom:12px}
+ .facts strong{font-size:14px}
+ .stat{grid-template-columns:85px 1fr 29px}
+ .evo-chain{gap:7px}
+ .evo-step{gap:7px}
+ .evo-card{min-width:88px;padding:8px}
+ .evo-card img{height:57px;width:57px}
+ .evo-card strong{font-size:11px}
+ .evo-trigger{max-width:48px;font-size:8px}
+ .variety-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .variety-card img{height:58px;width:58px}
+ .variety-card strong{font-size:10px}
+ .variety-card small{font-size:9px}
+ .pokegrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .pokecard{padding:8px 4px;gap:5px}
+ .pokecard img{height:65px;width:65px;max-width:100%}
+ .pokecard strong{font-size:10px;overflow-wrap:anywhere;text-align:center}
+ .pokecard .num{font-size:9px;padding-left:5px}
+ .pokecard svg{width:12px;height:12px}
+ .dex-toolbar{gap:7px}
+ .region-select{min-width:0}
+ .region-select select{min-height:43px}
+ .listhead h1{font-size:28px}
+ .listhead p{font-size:12px}
+ .daily{height:175px}
+ .daily-sprite{max-width:42%;max-height:125px}
+ .daily h2{font-size:23px}
+ .daily-number{font-size:10px}
+ .mini-pokemon-inner{gap:8px}
+ .mini-pokemon-form{display:none}
+ .mini-pokemon-id{font-size:10px}
+ .attack-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .attack-list button{padding:9px 7px;gap:6px}
+ .attack-list strong{font-size:11px}
+ .attack-list-number{font-size:9px}
+ .attack-pokemon{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .attack-pokemon img{height:58px;width:58px}
+ .attack-hero{padding:14px}
+ .attack-hero h1{font-size:28px}
+ .attack-fact strong{font-size:20px}
+ .move-row{font-size:10px}
+ .move-row .type-icon{display:none}
+ footer{padding:12px;font-size:9px;letter-spacing:.5px}
+}
