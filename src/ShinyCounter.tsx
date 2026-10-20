@@ -8,11 +8,9 @@ const methods=[{id:'base',label:'Normale Begegnung / Grundrate'},{id:'charm',lab
 function rateFor(gameId:string,method:string){const game=games.find(g=>g.id===gameId)||games[games.length-2];const den=game.den;let rolls=1;if(method==='charm')rolls=game.gen>=6?3:3;if(method==='masuda')rolls=game.gen===4?5:6;if(method==='both')rolls=game.gen>=6?8:8;return {den,rolls,prob:1-Math.pow(1-1/den,rolls)}}
 function availableMethods(gameId:string){const game=games.find(g=>g.id===gameId)||games[10];if(['pla','lgpe','za'].includes(gameId))return methods.slice(0,1);if(game.gen<4)return methods.slice(0,1);if(game.gen===4)return methods.filter(m=>m.id==='base'||m.id==='masuda');if(game.gen===5)return methods;if(gameId==='bdsp')return methods.filter(m=>m.id==='base'||m.id==='masuda'||m.id==='both');return methods;}
 const storeKey='eclipse-shiny-hunts-v1';
-const animated=(name:string)=>'https://play.pokemonshowdown.com/sprites/ani-shiny/'+name.toLowerCase().replace(/[^a-z0-9-]/g,'')+'.gif';
-const bwAnimated=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/'+id+'.gif';
 const shinyArt=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/'+id+'.png';
 const shinyStill=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+id+'.png';
-function HuntSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[animated(name),...(id<=649?[bwAnimated(id)]:[]),shinyArt(id),shinyStill(id)],[id,name]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);const src=sources[Math.min(index,sources.length-1)];return <img className={'hunt-sprite '+(src.endsWith('.gif')?'hunt-gif':'hunt-hd')} src={src} alt={'Shiny '+name} onError={()=>setIndex(v=>Math.min(v+1,sources.length-1))}/>}
+function HuntSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[shinyArt(id),shinyStill(id)],[id]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);const src=sources[Math.min(index,sources.length-1)];return <img className={'hunt-sprite '+(src.endsWith('.gif')?'hunt-gif':'hunt-hd')} src={src} alt={'Shiny '+name} onError={()=>setIndex(v=>Math.min(v+1,sources.length-1))}/>}
 
 export default function ShinyCounter({list,names}:{list:Entry[];names:Record<number,string>}){
  const [query,setQuery]=useState('');
