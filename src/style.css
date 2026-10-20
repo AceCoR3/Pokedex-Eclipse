@@ -20,7 +20,7 @@
 .welcome .daily-link{display:none}
 .welcome .daily-sprite{position:absolute;width:106px;height:106px;right:4px;top:29px;image-rendering:pixelated}
 .welcome .daily-halo{width:130px;height:130px;right:0;top:8px;filter:blur(36px)}
-@font-face{font-family:'Pokemon Pixel';src:url('/Pokedex-Eclipse/fonts/pokemon_pixel_font.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Pokemon Pixel';src:url('/Pokedex-Eclipse/font/pokemon_pixel_font.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 :root{font-family:'Pokemon Pixel','DM Sans',sans-serif}
 button,input{font-family:inherit}
 .brand,.hero h1,.listhead h1,.welcome h1,.daily h2,.category-title h2,.tile strong,.section-placeholder h1{font-family:'Pokemon Pixel','Space Grotesk',sans-serif}
