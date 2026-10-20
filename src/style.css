@@ -287,3 +287,17 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .mini-pokemon-inner{width:max-content;max-width:100%;margin:0 auto;padding:5px 14px;justify-content:center;gap:12px}
 .mini-pokemon-id{margin-left:12px}
 @media(max-width:540px){.mini-pokemon-inner{width:100%;max-width:440px;justify-content:center;padding:5px 10px;gap:8px}.mini-pokemon-id{margin-left:4px}}
+
+/* v1.3 compact Pokemon profile tabs */
+.profile-tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:12px 0 14px}
+.profile-tab{min-width:0;display:flex;justify-content:center;align-items:center;gap:8px;padding:12px 7px;border:1px solid #363840;background:#1a1c21;color:#aeb1ba;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s}
+.profile-tab-num{font-size:10px;color:#898d96;font-variant-numeric:tabular-nums}
+.profile-tab:hover{border-color:#777b85;color:#fff}
+.profile-tab.active{background:#e3e5e9;color:#15171b;border-color:#e3e5e9}
+.profile-tab.active .profile-tab-num{color:#555963}
+.profile-tabs+.details{display:block}
+.profile-tabs+.details>.panel{width:100%}
+.profile-tabs~.profile-extras{margin-top:0}
+.profile-tabs~.profile-extras:empty{display:none}
+@media(max-width:850px){.profile-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.profile-tab{padding:10px 5px;font-size:11px}}
+@media(max-width:540px){.profile-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:10px 0}.profile-tab{gap:5px;padding:10px 4px;font-size:10px}.profile-tab-num{font-size:9px}}
