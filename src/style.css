@@ -599,3 +599,13 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 .attackdex .attack-list-card>svg:last-child{flex:none;color:#B7B9C2}
 @media(max-width:600px){.attackdex .attack-list.attack-list-colored{grid-template-columns:1fr 1fr;gap:7px}.attackdex .attack-list-colored .attack-list-card{padding:8px;gap:6px;min-height:60px}.attackdex .attack-disc,.attackdex .attack-disc svg{width:27px;height:27px}.attackdex .attack-list-type{display:none}.attackdex .attack-list-copy strong{font-size:10px}.attackdex .attack-list-card>svg:last-child{width:13px}}
 @media(max-width:380px){.attackdex .attack-list.attack-list-colored{grid-template-columns:1fr}}
+
+/* Shared TM disc and type accent in attack details */
+.attackdex .attack-list-card .profile-move-disc{width:36px;height:36px;flex:none}
+.attackdex .attack-list-card .profile-move-disc svg{width:36px;height:36px}
+.attackdex .attack-hero{position:relative;border-color:color-mix(in srgb,var(--attack-color) 40%,#36333a);background:radial-gradient(ellipse at 85% 10%,color-mix(in srgb,var(--attack-color) 23%,#15171d),#15171d 68%);border-left:4px solid var(--attack-color)}
+.attackdex .attack-hero-disc{position:absolute;right:26px;top:24px;transform:scale(1.6);transform-origin:top right}
+.attackdex .attack-hero .attack-type{display:inline-flex;align-items:center;gap:6px;color:#121317;font-weight:700}
+.attackdex .attack-type-icon{width:15px;height:15px;object-fit:contain}
+.attackdex .attack-pokemon img{object-fit:contain;image-rendering:auto}
+@media(max-width:600px){.attackdex .attack-list-card .profile-move-disc,.attackdex .attack-list-card .profile-move-disc svg{width:27px;height:27px}.attackdex .attack-hero-disc{right:18px;top:18px;transform:scale(1.2)}}
