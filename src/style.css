@@ -522,3 +522,15 @@ main{grid-template-columns:204px minmax(0,1fr)}
  .sidebar .side-label,.sidebar .side-bottom{display:none!important}
 }
 @media(max-width:450px){.sidebar{padding:9px 11px!important}.sidebar .nav{padding:11px 12px!important;font-size:11px}}
+
+/* Fix clipped Pokemon name, type badges and Shiny toggle in profile */
+.hero{height:auto!important;min-height:480px!important;overflow:visible}
+.hero .pokemon-stage{flex:1 0 auto;min-height:250px}
+.hero .hero-bottom{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;min-height:0!important;padding:0!important;flex-wrap:wrap}
+.hero .hero-bottom>div:first-child{min-width:0;flex:1 1 190px}
+.hero .hero-bottom .shiny{position:static!important;inset:auto!important;flex:0 0 auto;align-self:flex-end;white-space:nowrap;margin-bottom:3px}
+.hero .hero-bottom h1{overflow-wrap:anywhere;line-height:1.12}
+.hero .hero-bottom .types{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+@media(max-width:900px){.hero{min-height:430px!important}.hero .pokemon-stage{min-height:220px}}
+@media(max-width:600px){.hero{min-height:385px!important;overflow:visible}.hero .pokemon-stage{min-height:185px}.hero .hero-bottom{align-items:flex-start;gap:10px}.hero .hero-bottom>div:first-child{flex-basis:100%}.hero .hero-bottom .shiny{margin:0;align-self:flex-start}.hero .hero-bottom h1{margin:5px 0 8px}}
+@media(max-width:390px){.hero{min-height:365px!important}.hero .pokemon-stage{min-height:170px}}
