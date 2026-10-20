@@ -487,3 +487,9 @@ main{grid-template-columns:204px minmax(0,1fr)}
  .typechart-table .tc-row-icon{width:14px;height:14px}
  .typechart-table .tc-row-icon img{width:11px;height:11px}
 }
+
+/* Sharper profile sprites: avoid oversized upscaling of low-res animated GIFs */
+.hero-sprite{width:190px;height:190px;max-width:100%;image-rendering:auto}
+@media(max-width:900px){.hero-sprite{width:165px;height:165px}}
+@media(max-width:600px){.hero-sprite{width:145px;height:145px}}
+@media(max-width:390px){.hero-sprite{width:130px;height:130px}}
