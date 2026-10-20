@@ -639,3 +639,20 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 .itemdex .item-held-pokemon{display:flex;flex-wrap:wrap;gap:8px}
 .itemdex .item-held-pokemon span{padding:6px 9px;border-radius:7px;background:#282A32;font-size:11px}
 @media(max-width:600px){.itemdex .item-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.itemdex .item-detail-hero{gap:13px;padding:14px}.itemdex .item-detail-sprite{width:90px;height:90px}.itemdex .item-detail-sprite img{width:75px;height:75px}.itemdex .item-detail-facts{grid-template-columns:1fr}.itemdex .item-category-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:7px}.itemdex .item-category-tabs button{white-space:nowrap}}
+
+/* Detailed Items and type-matched TM / HM discs */
+.itemdex .item-card-machine{font-size:10px;line-height:1.4;color:#D7D9E0;max-width:100%;overflow-wrap:anywhere}
+.itemdex .item-machine-number{display:inline-block;margin:0 0 10px;color:#F5F5F5;background:#342026;border:1px solid #7D343D;border-radius:6px;padding:5px 9px;font-size:11px;font-weight:700;letter-spacing:.08em}
+.itemdex .item-type-disc,.itemdex .item-machine-disc{display:inline-flex;align-items:center;justify-content:center;flex:none;border:3px solid #E9E9EC;border-radius:50%;box-shadow:0 3px 10px #0009,inset 0 0 0 2px #ffffff55;position:relative}
+.itemdex .item-type-disc{width:58px;height:58px}
+.itemdex .item-machine-disc{width:44px;height:44px}
+.itemdex .item-type-disc::before,.itemdex .item-machine-disc::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid #ffffff88;background:linear-gradient(135deg,#ffffff88,transparent 45%,#00000055)}
+.itemdex .item-type-disc span,.itemdex .item-machine-disc span{width:27%;height:27%;border-radius:50%;background:#F5F5F5;border:3px solid #1A1C22;z-index:1}
+.itemdex .item-machine-panel{margin:14px 0;padding:16px}
+.itemdex .item-machine-entry{display:flex;align-items:center;gap:13px;padding:12px 5px;border-bottom:1px solid #363740;flex-wrap:wrap}
+.itemdex .item-machine-entry>div{display:flex;flex-direction:column;gap:4px;flex:1;min-width:125px}
+.itemdex .item-machine-entry strong{font-size:13px;color:#FFF}
+.itemdex .item-machine-entry small{font-size:10px;color:#A4A7B2;text-transform:capitalize}
+.itemdex .item-machine-type{padding:5px 8px;border-radius:6px;color:#14151A;font-size:10px;font-weight:700}
+.itemdex .item-machine-stats{font-size:11px;color:#BFC1CA}
+@media(max-width:600px){.itemdex .item-machine-entry{gap:9px}.itemdex .item-machine-stats{flex-basis:100%;padding-left:54px}}
