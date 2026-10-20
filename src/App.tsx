@@ -1,5 +1,6 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
 import AttackDex from './AttackDex';
+import {MoveDisc} from './MoveDisc';
 import TypeChart from './TypeChart';
 import ShinyCounter from './ShinyCounter';
 import NationalDex from './NationalDex';
@@ -13,7 +14,6 @@ const typeColors:Record<string,string>={fire:'#ff7655',water:'#5aabf4',grass:'#6
 const typeNames:Record<string,string>={normal:'Normal',fire:'Feuer',water:'Wasser',electric:'Elektro',grass:'Pflanze',ice:'Eis',fighting:'Kampf',poison:'Gift',ground:'Boden',flying:'Flug',psychic:'Psycho',bug:'Käfer',rock:'Gestein',ghost:'Geist',dragon:'Drache',dark:'Unlicht',steel:'Stahl',fairy:'Fee'};
 const iconRoot='https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/';
 function TypeBadge({type}:{type:string}){return <span className="type" style={{background:typeColors[type]||'#aaa'}}><img className="type-icon" src={iconRoot+type+'.svg'} alt="" />{typeNames[type]||type}</span>}
-function MoveDisc({type}:{type:string}){const color=typeColors[type]||'#b8b8bf';return <span className="profile-move-disc" style={{'--disc-color':color} as React.CSSProperties} aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><defs><linearGradient id="discShine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff" stopOpacity=".85"/><stop offset=".42" stopColor="#fff" stopOpacity=".06"/><stop offset="1" stopColor="#000" stopOpacity=".4"/></linearGradient></defs><circle cx="24" cy="24" r="21" fill={color} stroke="#e5e7eb" strokeWidth="1.4"/><circle cx="24" cy="24" r="20" fill="url(#discShine)"/><path d="M24 3 A21 21 0 0 1 45 24 L31 24 A7 7 0 0 0 24 17Z" fill="#fff" opacity=".15"/><circle cx="24" cy="24" r="9" fill="#0B0D10" stroke="#fff" strokeOpacity=".6"/><circle cx="24" cy="24" r="4.5" fill="#eef0f4"/><circle cx="24" cy="24" r="2" fill="#a6adb8"/></svg></span>}
 const statNames:Record<string,string>={hp:'KP',attack:'Angriff',defense:'Verteidigung','special-attack':'Sp.-Angriff','special-defense':'Sp.-Vert.',speed:'Initiative'};
 const fallback=(id:number,shiny=false)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(shiny?'shiny/':'')+id+'.png';
 const homeArtwork=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/'+id+'.png';
