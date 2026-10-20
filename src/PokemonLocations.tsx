@@ -20,7 +20,7 @@ const [regions,setRegions]=useState<Record<string,string>>({});
 const [zoom,setZoom]=useState(false);
 const [worldAvailable,setWorldAvailable]=useState(false);
 const [worldView,setWorldView]=useState(true);
-const worldUrl=import.meta.env.BASE_URL+'maps/pokemon-world.png';
+const worldUrl='/Pokedex-Eclipse/maps/pokemon-world.png';
 useEffect(()=>{let live=true;const img=new Image();img.onload=()=>{if(live)setWorldAvailable(true)};img.onerror=()=>{if(live)setWorldAvailable(false)};img.src=worldUrl;return()=>{live=false}},[worldUrl]);
 useEffect(()=>{let active=true;setLoading(true);setError(false);setData([]);setEdition('');setSelectedArea('');setRegions({});fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/encounters').then(r=>{if(!r.ok)throw Error();return r.json()}).then((d:Encounter[])=>{if(active)setData(d)}).catch(()=>{if(active)setError(true)}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[id]);
 const editions=useMemo(()=>[...new Set(data.flatMap(d=>d.version_details.map(v=>v.version.name)))].sort(),[data]);
