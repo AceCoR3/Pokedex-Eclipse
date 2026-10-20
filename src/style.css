@@ -416,3 +416,29 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .encounter-world img{image-rendering:pixelated}
 .encounter-world-caption{position:absolute;left:10px;top:10px;display:grid;gap:4px;max-width:calc(100% - 20px);padding:9px 12px;border:1px solid #7e8996;background:#111722db;color:#fff;border-radius:9px;font-size:13px;font-weight:700}
 .encounter-world-caption small{font-size:10px;color:#d4dce6;font-weight:400}
+
+/* Eclipse Kanto route explorer */
+.kanto-route-explorer{margin:22px 0;padding:14px;background:#131920;border:1px solid #303945;border-radius:15px;color:#eaf0f5}
+.route-explorer-title,.route-explorer-results-title,.route-explorer-map-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.route-explorer-title small{color:#94a6b8;letter-spacing:1.5px;font-size:10px}
+.route-explorer-title h3{margin:4px 0 0;font-size:20px}
+.route-explorer-title>span{font-size:10px;color:#9cabbc}
+.route-explorer-controls{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:10px;margin:16px 0}
+.route-explorer-controls label{display:grid;gap:6px;font-size:11px;color:#b6c2cf}
+.route-explorer-controls select,.route-explorer-controls input{width:100%;min-width:0;background:#202936;color:#f3f6fa;border:1px solid #465161;border-radius:7px;padding:10px;font:inherit}
+.route-explorer-body{display:grid;grid-template-columns:minmax(200px,0.85fr) minmax(0,1.5fr);gap:12px}
+.route-explorer-map,.route-explorer-results{min-width:0;background:#1c242e;border:1px solid #303e4d;border-radius:10px;padding:12px}
+.route-explorer-map-heading span{font-size:11px;color:#acbbca}
+.route-explorer-art{position:relative;overflow:hidden;aspect-ratio:1.1;background-color:#82b95b;background-image:linear-gradient(90deg,#78ac4f 25%,transparent 25%,transparent 75%,#78ac4f 75%),linear-gradient(#9acb68 25%,transparent 25%,transparent 75%,#9acb68 75%);background-size:32px 32px;margin:12px 0;border:4px solid #31454b;image-rendering:pixelated}
+.route-explorer-path{position:absolute;inset:13% 34% 0 33%;background:#ebd6b4;border-left:6px solid #b6a281;border-right:6px solid #b6a281;transform:rotate(17deg)}
+.route-explorer-water{position:absolute;right:-6%;top:-12%;width:40%;height:53%;background:repeating-linear-gradient(0deg,#4eabd7 0 9px,#72c8eb 9px 17px);transform:rotate(-18deg)}
+.route-explorer-grass{position:absolute;background:repeating-linear-gradient(90deg,#347f43 0 7px,#469f4a 7px 13px);border:4px solid #2f7740}
+.grass-one{left:4%;top:11%;width:24%;height:37%}.grass-two{left:10%;bottom:8%;width:27%;height:28%}.grass-three{right:7%;bottom:10%;width:32%;height:26%}
+.route-explorer-marker{position:absolute;top:43%;left:46%;font-size:33px;color:#ffdf68;text-shadow:0 0 9px #000;animation:encounter-blink 1.4s infinite}
+.route-explorer-map p,.route-explorer-footnote{font-size:10px;line-height:1.5;color:#9facbb;margin:8px 0 0}
+.route-explorer-results-title{padding-bottom:10px;border-bottom:1px solid #35404e}.route-explorer-results-title span{font-size:11px;color:#a6b5c4}
+.route-explorer-list{max-height:440px;overflow:auto}
+.route-explorer-pokemon{display:grid;grid-template-columns:minmax(110px,1.5fr) minmax(80px,1fr) 65px 75px;gap:7px;align-items:center;padding:8px 2px;border-bottom:1px solid #35404e;font-size:12px}
+.route-explorer-pokemon>div{min-width:0;display:grid;gap:3px}.route-explorer-pokemon small{font-size:10px;color:#9fb0c0}.route-explorer-pokemon strong{font-size:12px;overflow-wrap:anywhere}
+.route-explorer-mon{display:flex!important;align-items:center;gap:5px}.route-explorer-mon img{width:42px;height:42px;image-rendering:pixelated}.route-explorer-mon>div{display:grid;gap:3px}
+@media(max-width:760px){.route-explorer-body{grid-template-columns:1fr}.route-explorer-controls{grid-template-columns:1fr 1fr}.route-explorer-controls label:last-child{grid-column:1/-1}.route-explorer-pokemon{grid-template-columns:minmax(100px,1.2fr) minmax(75px,1fr) 50px 65px;gap:4px}.route-explorer-pokemon strong{font-size:11px}.route-explorer-mon img{width:35px;height:35px}}
