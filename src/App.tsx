@@ -27,7 +27,7 @@ function Sprite({id,shiny=false,className='',name}:{id:number;shiny?:boolean;cla
 type Variety={id:number;name:string;isDefault:boolean;url:string};
 type EvoNode={id:number;name:string;minLevel:number|null;trigger:string};
 const idFromUrl=(url:string)=>Number(url.match(/\/(\d+)\/$/)?.[1]||0);
-const sections=[{id:'moves',label:'Attacken',icon:Disc3},{id:'abilities',label:'Fähigkeiten',icon:Star},{id:'checklists',label:'Checklisten',icon:CheckCheck},{id:'teams',label:'Teams',icon:Layers3},{id:'locations',label:'Orte',icon:MapPinned},{id:'types',label:'Typendiagramm',icon:ChartNoAxesCombined},{id:'shiny-counter',label:'Shiny Counter',icon:Hash},{id:'leaders',label:'Arenaleiter & Top Vier',icon:Medal},{id:'items',label:'Objekte',icon:Backpack}];
+const sections=[{id:'moves',label:'Attacken',icon:Disc3},{id:'abilities',label:'Fähigkeiten',icon:Star},{id:'checklists',label:'Checklisten',icon:CheckCheck},{id:'teams',label:'Teams',icon:Layers3},{id:'locations',label:'Orte',icon:MapPinned},{id:'types',label:'Typendiagramm',icon:ChartNoAxesCombined},{id:'shiny-counter',label:'Shiny Counter',icon:Hash},{id:'leaders',label:'Arenaleiter & Top Vier',icon:Medal},{id:'items',label:'Items',icon:Backpack}];
 const dateKey=new Date().toLocaleDateString('en-CA');
 const dailyId=1+Math.abs([...dateKey].reduce((hash,c)=>((hash*31+c.charCodeAt(0))|0),7))%1025;
 const fmt=(id:number)=>'#'+String(id).padStart(4,'0');
