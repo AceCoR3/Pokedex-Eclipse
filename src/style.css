@@ -301,3 +301,26 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .profile-tabs~.profile-extras:empty{display:none}
 @media(max-width:850px){.profile-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.profile-tab{padding:10px 5px;font-size:11px}}
 @media(max-width:540px){.profile-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:10px 0}.profile-tab{gap:5px;padding:10px 4px;font-size:10px}.profile-tab-num{font-size:9px}}
+
+/* v1.4 compact Pokemon type matchups, abilities and species properties */
+.pokemon-info-extra{display:grid;gap:20px}
+.info-subsection{min-width:0}
+.info-subsection+.info-subsection{border-top:1px solid #34363d;padding-top:18px}
+.info-subsection h3{font-size:17px;letter-spacing:-.3px;margin:0 0 13px;color:#f4f5f6}
+.matchup-row{display:grid;grid-template-columns:135px minmax(0,1fr);gap:12px;align-items:center;padding:8px 0}
+.matchup-label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:#bfc3cb}
+.matchup-label span{font-size:14px;font-weight:700;color:#f4f5f6}
+.matchup-icons{display:flex;flex-wrap:wrap;gap:8px}
+.matchup-type{display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 9px;border-radius:9px;min-width:70px;color:#111318}
+.matchup-type img{width:17px;height:17px;object-fit:contain}
+.matchup-type small{font-size:10px;font-weight:700}
+.ability-entry{padding:10px 0}
+.ability-entry+.ability-entry{border-top:1px solid #30323a}
+.ability-entry>strong{font-size:13px;color:#f1f3f6;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.hidden-ability{font-size:10px;font-weight:500;color:#c7cbd2;border:1px solid #535660;padding:3px 7px;border-radius:6px}
+.ability-entry p{font-size:12px;line-height:1.65;color:#c4c7ce;margin:7px 0 0}
+.properties-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px}
+.property-row{display:flex;flex-direction:column;gap:4px;border-bottom:1px solid #2e3037;padding:10px 0;min-width:0}
+.property-row span{font-size:10px;color:#959aa4}
+.property-row strong{font-size:12px;color:#f0f2f5;font-weight:600;overflow-wrap:anywhere}
+@media(max-width:600px){.pokemon-info-extra{gap:15px}.info-subsection h3{font-size:15px}.matchup-row{grid-template-columns:95px minmax(0,1fr);gap:7px}.matchup-label{font-size:10px}.matchup-icons{gap:5px}.matchup-type{min-width:0;padding:7px}.matchup-type small{display:none}.matchup-type img{width:20px;height:20px}.properties-grid{column-gap:12px}.property-row{padding:8px 0}.property-row strong{font-size:11px}}
