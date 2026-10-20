@@ -18,8 +18,9 @@ const regions:Region[]=[
 const batch=36;
 const fmt=(id:number)=>'#'+String(id).padStart(4,'0');
 const still=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+id+'.png';
+const homeArtwork=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/'+id+'.png';
 const artwork=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+id+'.png';
-function DexSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[artwork(id),still(id)],[id]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);return <img src={sources[Math.min(index,sources.length-1)]} alt="" loading="lazy" onError={()=>setIndex(old=>Math.min(old+1,sources.length-1))}/>}
+function DexSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[homeArtwork(id),artwork(id),still(id)],[id]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);return <img src={sources[Math.min(index,sources.length-1)]} alt="" loading="lazy" onError={()=>setIndex(old=>Math.min(old+1,sources.length-1))}/>}
 export default function NationalDex({list,names,onSelect}:{list:{name:string;url:string}[];names:Record<number,string>;onSelect:(id:number)=>void}){
 const [region,setRegion]=useState('all');const [search,setSearch]=useState('');const [visible,setVisible]=useState(batch);const sentinel=useRef<HTMLDivElement|null>(null);
 const items=useMemo<Entry[]>(()=>list.map((p,i)=>({id:Number(p.url.split('/').filter(Boolean).pop())||i+1,name:p.name})).sort((a,b)=>a.id-b.id),[list]);
