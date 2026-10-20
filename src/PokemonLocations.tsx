@@ -1,6 +1,6 @@
 import {useEffect,useMemo,useState} from 'react';
 
-type Encounter={location_area:{name:string};version_details:{version:{name:string};max_chance:number;encounter_details:{min_level:number;max_level:number;method:{name:string}}[]}[]};
+type Encounter={location_area:{name:string;url:string};version_details:{version:{name:string};max_chance:number;encounter_details:{min_level:number;max_level:number;method:{name:string}}[]}[]};
 const format=(name:string)=>name.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
 const editionDe:Record<string,string>={red:'Rot',blue:'Blau',yellow:'Gelb',gold:'Gold',silver:'Silber',crystal:'Kristall',ruby:'Rubin',sapphire:'Saphir',emerald:'Smaragd',firered:'Feuerrot',leafgreen:'Blattgrün',diamond:'Diamant',pearl:'Perl',platinum:'Platin',heartgold:'HeartGold',soulsilver:'SoulSilver',black:'Schwarz',white:'Weiß','black-2':'Schwarz 2','white-2':'Weiß 2',x:'X',y:'Y','omega-ruby':'Omega Rubin','alpha-sapphire':'Alpha Saphir',sun:'Sonne',moon:'Mond','ultra-sun':'Ultrasonne','ultra-moon':'Ultramond','lets-go-pikachu':"Let's Go, Pikachu!",'lets-go-eevee':"Let's Go, Evoli!",sword:'Schwert',shield:'Schild','brilliant-diamond':'Strahlender Diamant','shining-pearl':'Leuchtende Perle',scarlet:'Karmesin',violet:'Purpur'};
 const methodDe:Record<string,string>={walk:'Im Gras',surf:'Surfen','old-rod':'Alte Angel','good-rod':'Profiangel','super-rod':'Superangel','rock-smash':'Zertrümmerer',headbutt:'Kopfnuss','dark-grass':'Dunkles Gras','grass-spots':'Raschelndes Gras','cave-spots':'Staubwolke','bridge-spots':'Brückenschatten','surf-spots':'Wasserstrudel','gift':'Geschenk'};
@@ -8,12 +8,14 @@ const placeDe=(s:string)=>{const route=s.match(/(?:^|-)route-(\d+)/);if(route)re
 export default function PokemonLocations({id}:{id:number}){
  const [data,setData]=useState<Encounter[]>([]);
  const [edition,setEdition]=useState('');
+ const [translated,setTranslated]=useState<Record<string,string>>({});
  const [loading,setLoading]=useState(true);
  const [error,setError]=useState(false);
  useEffect(()=>{let active=true;setLoading(true);setError(false);setData([]);setEdition('');fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/encounters').then(r=>{if(!r.ok)throw Error();return r.json()}).then((d:Encounter[])=>{if(active)setData(d)}).catch(()=>{if(active)setError(true)}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[id]);
  const editions=useMemo(()=>[...new Set(data.flatMap(d=>d.version_details.map(v=>v.version.name)))].sort(),[data]);
  useEffect(()=>{if(editions.length&&!editions.includes(edition))setEdition(editions[0])},[editions,edition]);
- const places=useMemo(()=>data.flatMap(d=>{const v=d.version_details.find(v=>v.version.name===edition);if(!v)return [];const levels=[...new Set(v.encounter_details.map(e=>e.min_level===e.max_level?'Lv. '+e.min_level:'Lv. '+e.min_level+'–'+e.max_level))];const methods=[...new Set(v.encounter_details.map(e=>methodDe[e.method.name]||format(e.method.name)))];return [{name:placeDe(d.location_area.name),levels,methods}]}).sort((a,b)=>a.name.localeCompare(b.name,'de')),[data,edition]);
+ useEffect(()=>{let active=true;const relevant=data.filter(d=>d.version_details.some(v=>v.version.name===edition));const run=async()=>{const results:Record<string,string>={};for(let i=0;i<relevant.length&&active;i+=8){await Promise.all(relevant.slice(i,i+8).map(async d=>{try{const a=await fetch(d.location_area.url).then(r=>r.json()) as {location:{url:string}};const loc=await fetch(a.location.url).then(r=>r.json()) as {names:{name:string;language:{name:string}}[]};results[d.location_area.name]=loc.names.find(n=>n.language.name==='de')?.name||''}catch{results[d.location_area.name]=''}}));if(active)setTranslated(old=>({...old,...results}))}};void run();return()=>{active=false}},[data,edition]);
+ const places=useMemo(()=>data.flatMap(d=>{const v=d.version_details.find(v=>v.version.name===edition);if(!v)return [];const levels=[...new Set(v.encounter_details.map(e=>e.min_level===e.max_level?'Lv. '+e.min_level:'Lv. '+e.min_level+'–'+e.max_level))];const methods=[...new Set(v.encounter_details.map(e=>methodDe[e.method.name]||format(e.method.name)))];return [{name:translated[d.location_area.name]||placeDe(d.location_area.name),levels,methods}]}).sort((a,b)=>a.name.localeCompare(b.name,'de')),[data,edition]);
  if(loading)return <p className="muted">Fundorte werden geladen ...</p>;
  if(error)return <p className="muted">Fundorte konnten momentan nicht geladen werden.</p>;
  if(!editions.length)return <p className="muted">Für dieses Pokémon sind in der PokéAPI keine Fundorte hinterlegt. Geschenke, Zucht und manche neuere Editionen werden nicht vollständig erfasst.</p>;
