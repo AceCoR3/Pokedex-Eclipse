@@ -390,3 +390,20 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .encounter-location:hover,.encounter-location.selected{border-color:#c2c7d2;background:#262c35}
 @media(prefers-reduced-motion:reduce){.encounter-pulse,.encounter-pulse span{animation:none}}
 @media(max-width:540px){.encounter-toolbar select{max-width:none}.encounter-map,.encounter-map-unavailable{min-height:215px}.encounter-map-unavailable strong{font-size:14px}.encounter-map-unavailable p{font-size:11px}}
+
+/* v1.8 interactive schematic edition atlas */
+.encounter-schematic{width:100%;padding:14px 10px 8px}
+.encounter-schematic-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:3px 9px 12px}
+.encounter-schematic-heading strong{font-size:14px;color:#f1f3f7}
+.encounter-schematic-heading span{font-size:9px;letter-spacing:1px;color:#9da9ba}
+.encounter-schematic-scroll{overflow:auto;max-height:520px;border:1px solid #35404d;border-radius:9px;background:#171d25}
+.encounter-schematic-scroll svg{width:100%;height:auto;display:block;min-width:400px}
+.encounter-svg-node{cursor:pointer;outline:none}
+.encounter-svg-node text{fill:#e2e8f1;font-size:9px;paint-order:stroke;stroke:#131820;stroke-width:3px;pointer-events:none}
+.encounter-svg-halo{fill:#e64f70;opacity:.18;stroke:#ff718a;stroke-width:1.5;animation:encounter-ring 2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.encounter-svg-dot{fill:#fa6a83;stroke:#fff;stroke-width:1.5;animation:encounter-blink 1.4s ease-in-out infinite}
+.encounter-svg-node.active .encounter-svg-dot{fill:#ffcc6a;stroke:#fff;stroke-width:2.5}
+.encounter-svg-node.active .encounter-svg-halo{fill:#ffc768;stroke:#ffc768;opacity:.3}
+.encounter-svg-node:focus .encounter-svg-halo{stroke:#fff;stroke-width:3}
+.encounter-schematic-note{font-size:10px;line-height:1.5;color:#aeb6c3;margin:10px 7px 3px}
+@media(prefers-reduced-motion:reduce){.encounter-svg-halo,.encounter-svg-dot{animation:none}}
