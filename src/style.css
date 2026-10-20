@@ -513,3 +513,12 @@ main{grid-template-columns:204px minmax(0,1fr)}
 
 /* Shiny hunt game odds calculator */
 .hunt-odds{margin:24px auto 0;max-width:760px;padding:20px;background:#11141b;border:1px solid #383d49;border-radius:14px}.hunt-odds-heading h3{font:700 19px 'Chakra Petch',sans-serif;margin:8px 0 16px;color:#f1f3f8}.hunt-odds-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.hunt-odds-fields label{display:flex;flex-direction:column;gap:8px;font-size:10px;letter-spacing:1px;color:#abb3c2;font-weight:700}.hunt-odds-fields select{width:100%;min-width:0;background:#20242e;border:1px solid #454b59;color:#f0f2f7;border-radius:9px;padding:12px 9px;font:500 12px 'Chakra Petch',sans-serif;letter-spacing:0;cursor:pointer}.hunt-odds-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.hunt-odds-stats>div{display:flex;flex-direction:column;gap:8px;padding:17px 13px;border-radius:10px;background:#20242d;border:1px solid #373d4b}.hunt-odds-stats small{font-size:10px;color:#b2bac9;line-height:1.5}.hunt-odds-stats strong{font:700 clamp(20px,3vw,30px) 'Chakra Petch',sans-serif;color:#f4f5f8;font-variant-numeric:tabular-nums}.hunt-odds-stats span{font-size:11px;color:#9ea7b6}.hunt-odds-note{font-size:11px;color:#929aaa;line-height:1.7;margin:14px 0 0}@media(max-width:650px){.hunt-odds{padding:14px}.hunt-odds-fields,.hunt-odds-stats{grid-template-columns:1fr}.hunt-odds-stats>div{padding:13px}.hunt-odds-stats strong{font-size:26px}}
+
+/* Navigation-first layout: no dashboard tile wall */
+.side-explore{margin-top:23px;margin-bottom:6px}
+@media(max-width:850px){
+ .sidebar{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;grid-template-columns:none!important;overflow-x:auto!important;overflow-y:hidden!important;gap:5px!important;min-height:0!important;scrollbar-width:thin;scrollbar-color:#454956 #12131a;scroll-snap-type:x proximity}
+ .sidebar .nav{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start}
+ .sidebar .side-label,.sidebar .side-bottom{display:none!important}
+}
+@media(max-width:450px){.sidebar{padding:9px 11px!important}.sidebar .nav{padding:11px 12px!important;font-size:11px}}
