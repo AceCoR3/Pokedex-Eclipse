@@ -1,3 +1,14 @@
-import type {CSSProperties} from 'react';
-const typeColors:Record<string,string>={normal:'#b8b8bf',fire:'#ff7655',water:'#5aabf4',electric:'#ffd66a',grass:'#6bd6a3',ice:'#8de7ec',fighting:'#ef8e72',poison:'#b38aff',ground:'#d9af7c',flying:'#9fc1ed',psychic:'#ff8caf',bug:'#a9cb65',rock:'#c8b78d',ghost:'#a18dff',dragon:'#829bff',dark:'#9a9db0',steel:'#9bbac7',fairy:'#f3a9d9'};
-export function MoveDisc({type,sprite}:{type:string;sprite?:string}){const color=typeColors[type]||'#b8b8bf';return <span className="profile-move-disc" style={{'--disc-color':color} as CSSProperties} aria-hidden="true">{sprite?<img src={sprite} alt="" width="40" height="40" style={{objectFit:"contain",imageRendering:"pixelated"}}/>:<svg viewBox="0 0 48 48" width="40" height="40"><defs><linearGradient id="discShine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff" stopOpacity=".85"/><stop offset=".42" stopColor="#fff" stopOpacity=".06"/><stop offset="1" stopColor="#000" stopOpacity=".4"/></linearGradient></defs><circle cx="24" cy="24" r="21" fill={color} stroke="#e5e7eb" strokeWidth="1.4"/><circle cx="24" cy="24" r="20" fill="url(#discShine)"/><path d="M24 3 A21 21 0 0 1 45 24 L31 24 A7 7 0 0 0 24 17Z" fill="#fff" opacity=".15"/><circle cx="24" cy="24" r="9" fill="#0B0D10" stroke="#fff" strokeOpacity=".6"/><circle cx="24" cy="24" r="4.5" fill="#eef0f4"/><circle cx="24" cy="24" r="2" fill="#a6adb8"/></svg>}</span>}
+import {useEffect,useState} from 'react';
+
+/** Original PokeAPI item sprites: tm-{type}.png for all 18 Pokemon types. */
+const spriteRoot='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/';
+const supportedTypes=new Set(['normal','fire','water','electric','grass','ice','fighting','poison','ground','flying','psychic','bug','rock','ghost','dragon','dark','steel','fairy']);
+const hmTypes=new Set(['normal','fighting','flying','water']);
+export function MoveDisc({type,sprite,kind='tm'}:{type:string;sprite?:string;kind?:'tm'|'hm'}){
+  const validType=supportedTypes.has(type)?type:'normal';
+  const machineKind=kind==='hm'&&hmTypes.has(validType)?'hm':'tm';
+  const typedSprite=spriteRoot+machineKind+'-'+validType+'.png';
+  const [url,setUrl]=useState(typedSprite);
+  useEffect(()=>setUrl(typedSprite),[typedSprite]);
+  return <span className="profile-move-disc" aria-hidden="true"><img src={url} alt="" width="40" height="40" loading="lazy" style={{objectFit:'contain',imageRendering:'pixelated'}} onError={()=>{if(url!==sprite&&sprite)setUrl(sprite);else if(url!==spriteRoot+'tm-normal.png')setUrl(spriteRoot+'tm-normal.png')}}/></span>;
+}
