@@ -123,3 +123,9 @@ html,body,#root,.app,.app *,button,input,textarea,select{font-family:'Chakra Pet
 .dex-region-total{color:#a5a8b0;font-size:12px;white-space:nowrap}
 .dex-sentinel{text-align:center;min-height:48px;padding:17px;color:#898d96;font-size:12px}
 @media(max-width:700px){.dex-toolbar{flex-direction:column}.region-select{min-height:50px}.region-chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px}.region-chips button{white-space:nowrap;flex-shrink:0}.dex-region-total{font-size:10px}}
+
+/* v0.9: Pokemon type tint in the profile, neutral rest of UI */
+.hero{background:radial-gradient(ellipse at 50% 46%,color-mix(in srgb,var(--pokemon-type-color,#aeb1ba) 24%,#111217) 0%,color-mix(in srgb,var(--pokemon-type-color,#aeb1ba) 9%,#0d0e12) 55%,#0b0c10 100%);border-color:color-mix(in srgb,var(--pokemon-type-color,#aeb1ba) 22%,#30323a)}
+.hero .halo{background:var(--pokemon-type-color,#aeb1ba);opacity:.20;filter:blur(100px)}
+.hero .index{color:#f5f5f6}
+.hero .hero-sprite{filter:drop-shadow(0 15px 24px #0009)}
