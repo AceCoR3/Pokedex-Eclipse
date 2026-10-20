@@ -656,3 +656,9 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 .itemdex .item-machine-type{padding:5px 8px;border-radius:6px;color:#14151A;font-size:10px;font-weight:700}
 .itemdex .item-machine-stats{font-size:11px;color:#BFC1CA}
 @media(max-width:600px){.itemdex .item-machine-entry{gap:9px}.itemdex .item-machine-stats{flex-basis:100%;padding-left:54px}}
+
+/* Original PokéAPI machine item sprites, never synthetic discs */
+.itemdex .item-machine-original-sprite{width:62px;height:62px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 3px 6px #0007)}
+.itemdex .item-machine-sprite{width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex:none}
+.itemdex .item-machine-sprite .item-machine-original-sprite{width:48px;height:48px}
+.itemdex .item-detail-sprite .item-machine-original-sprite{width:110px;height:110px}
