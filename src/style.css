@@ -324,3 +324,9 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .property-row span{font-size:10px;color:#959aa4}
 .property-row strong{font-size:12px;color:#f0f2f5;font-weight:600;overflow-wrap:anywhere}
 @media(max-width:600px){.pokemon-info-extra{gap:15px}.info-subsection h3{font-size:15px}.matchup-row{grid-template-columns:95px minmax(0,1fr);gap:7px}.matchup-label{font-size:10px}.matchup-icons{gap:5px}.matchup-type{min-width:0;padding:7px}.matchup-type small{display:none}.matchup-type img{width:20px;height:20px}.properties-grid{column-gap:12px}.property-row{padding:8px 0}.property-row strong{font-size:11px}}
+
+/* v1.5 move learning methods */
+.move-learn-method{display:flex;flex-wrap:wrap;align-items:center;gap:5px;min-width:0}
+.move-learn-level,.move-learn-machine{display:inline-flex;align-items:center;padding:4px 6px;border-radius:5px;font-size:10px;line-height:1.2;white-space:normal}
+.move-learn-level{background:#30353b;color:#eef0f3}.move-learn-machine{background:#293a3a;color:#b4e2da}
+@media(max-width:850px){.move-row{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,.9fr)!important}.move-row>*:nth-child(6){display:flex!important;justify-content:flex-end}.move-row>*:nth-child(4),.move-row>*:nth-child(5),.move-row>*:nth-child(3){display:none!important}.move-learn-method{justify-content:flex-end}.move-learn-level,.move-learn-machine{font-size:9px;padding:4px}}
