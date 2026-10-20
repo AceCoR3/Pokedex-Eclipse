@@ -689,3 +689,18 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 .abilitydex .ability-regular{background:#193528;color:#9de4b6}
 .abilitydex .ability-more{display:flex;align-items:center;gap:8px;margin:22px auto 4px;background:#e53935;border:0;color:white;padding:11px 17px;border-radius:8px}
 @media(max-width:600px){.abilitydex .ability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.abilitydex .ability-pokemon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.abilitydex .ability-description,.abilitydex .ability-pokemon-panel{padding:15px}}
+
+/* PokéDexion Fähigkeiten: responsive cards with bounded HOME artwork */
+.abilitydex{width:100%;min-width:0}
+.abilitydex .ability-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,205px),1fr));gap:14px;align-items:stretch}
+.abilitydex .ability-grid .ability-card{display:flex;flex-direction:column;position:relative;min-width:0;min-height:145px;width:100%;border:1px solid #292e37;background:linear-gradient(145deg,#171a21,#111318);border-radius:12px;padding:16px 18px;gap:12px;text-align:left;white-space:normal;box-shadow:none}
+.abilitydex .ability-grid .ability-card strong{display:block;font-size:15px;line-height:1.4;overflow-wrap:anywhere;color:#f4f5f7}
+.abilitydex .ability-grid .ability-card small{display:block;color:#9ca1ae;font-size:11px}
+.abilitydex .ability-grid .ability-card:hover{border-color:#e53935;background:#1d1b21}
+.abilitydex .ability-pokemon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,145px),1fr));gap:12px;align-items:stretch}
+.abilitydex .ability-pokemon-grid .ability-pokemon-card{width:100%;min-width:0;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;background:#11151b;border:1px solid #292e37;border-radius:12px;padding:12px 9px;color:#f5f5f5;overflow:hidden}
+.abilitydex .ability-pokemon-grid .ability-pokemon-card img{display:block;width:100px!important;height:100px!important;max-width:100%!important;max-height:100px!important;min-width:0;object-fit:contain;flex:none}
+.abilitydex .ability-pokemon-grid .ability-pokemon-card strong{display:block;max-width:100%;font-size:12px;text-align:center;line-height:1.4;overflow-wrap:anywhere}
+.abilitydex .ability-pokemon-grid .ability-pokemon-card:hover{border-color:#e53935}
+.abilitydex .ability-pokemon-id{align-self:flex-start}
+@media(max-width:640px){.abilitydex .ability-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.abilitydex .ability-pokemon-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.abilitydex .ability-grid .ability-card{padding:12px;min-height:136px}}
