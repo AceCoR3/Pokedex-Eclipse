@@ -493,3 +493,13 @@ main{grid-template-columns:204px minmax(0,1fr)}
 @media(max-width:900px){.hero-sprite{width:165px;height:165px}}
 @media(max-width:600px){.hero-sprite{width:145px;height:145px}}
 @media(max-width:390px){.hero-sprite{width:130px;height:130px}}
+
+/* Profile image quality: crisp authentic GIF frames, full-size HD artwork fallback */
+.hero-sprite{width:245px;height:245px;max-width:100%;object-fit:contain}
+.hero-sprite.sprite-animated{image-rendering:pixelated;animation:none}
+.hero-sprite.sprite-artwork{image-rendering:auto;animation:eclipse-artwork-float 3.5s ease-in-out infinite}
+@keyframes eclipse-artwork-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(max-width:900px){.hero-sprite{width:205px;height:205px}}
+@media(max-width:600px){.hero-sprite{width:175px;height:175px}}
+@media(max-width:390px){.hero-sprite{width:155px;height:155px}}
+@media(prefers-reduced-motion:reduce){.hero-sprite.sprite-artwork{animation:none}}
