@@ -10,7 +10,7 @@ function availableMethods(gameId:string){const game=games.find(g=>g.id===gameId)
 const storeKey='eclipse-shiny-hunts-v1';
 const shinyArt=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/'+id+'.png';
 const shinyStill=(id:number)=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+id+'.png';
-function HuntSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[shinyArt(id),shinyStill(id)],[id]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);const src=sources[Math.min(index,sources.length-1)];return <img className={'hunt-sprite '+(src.endsWith('.gif')?'hunt-gif':'hunt-hd')} src={src} alt={'Shiny '+name} onError={()=>setIndex(v=>Math.min(v+1,sources.length-1))}/>}
+function HuntSprite({id,name}:{id:number;name:string}){const sources=useMemo(()=>[shinyArt(id),shinyStill(id)],[id]);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[id,name]);const src=sources[Math.min(index,sources.length-1)];return <img className={'hunt-sprite '+('hunt-hd')} src={src} alt={'Shiny '+name} onError={()=>setIndex(v=>Math.min(v+1,sources.length-1))}/>}
 
 export default function ShinyCounter({list,names}:{list:Entry[];names:Record<number,string>}){
  const [query,setQuery]=useState('');
