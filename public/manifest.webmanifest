@@ -1,13 +1,13 @@
 {
-  "name": "Pokédex Eclipse",
-  "short_name": "Eclipse",
+  "name": "PokéDexion",
+  "short_name": "PokéDexion",
   "description": "Dein Pokémon-Pokédex für unterwegs.",
   "lang": "de",
   "start_url": "/Pokedex-Eclipse/",
   "scope": "/Pokedex-Eclipse/",
   "display": "standalone",
-  "background_color": "#08090d",
-  "theme_color": "#08090d",
+  "background_color": "#0B0D10",
+  "theme_color": "#0B0D10",
   "icons": [
     {
       "src": "icons/icon-192.png",
