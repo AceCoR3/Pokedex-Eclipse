@@ -349,3 +349,14 @@ main{grid-template-columns:204px minmax(0,1fr)}
 .move-row:not(.move-header)>.move-value{text-align:left!important;font-size:12px}
 }
 @media(max-width:540px){.move-row:not(.move-header){padding:10px!important;gap:6px!important}.move-row:not(.move-header)>:nth-child(1){font-size:11px}}
+
+/* v1.6 Pokedex entry in info and encounter locations */
+.profile-dex-entry{margin-top:18px;border-top:1px solid #34363d;padding-top:17px}
+.profile-dex-entry h3{font-size:17px;margin:0 0 10px}
+.profile-dex-entry .dex-entry{margin:0}
+.locations-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:9px}
+.location-item{display:flex;flex-direction:column;gap:6px;padding:13px;border:1px solid #35373e;border-radius:9px;background:#191b20;min-width:0}
+.location-item strong{font-size:13px;color:#f0f2f5;overflow-wrap:anywhere}
+.location-item span{font-size:11px;color:#c3c6ce;line-height:1.5;overflow-wrap:anywhere}
+.location-item small{font-size:10px;color:#9ea5b0}
+@media(max-width:540px){.locations-list{grid-template-columns:1fr}.profile-dex-entry h3{font-size:15px}}
