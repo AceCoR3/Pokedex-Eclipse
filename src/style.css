@@ -609,3 +609,33 @@ button:focus-visible,input:focus-visible{outline-color:var(--pd-red)}
 .attackdex .attack-type-icon{width:15px;height:15px;object-fit:contain}
 .attackdex .attack-pokemon img{object-fit:contain;image-rendering:auto}
 @media(max-width:600px){.attackdex .attack-list-card .profile-move-disc,.attackdex .attack-list-card .profile-move-disc svg{width:27px;height:27px}.attackdex .attack-hero-disc{right:18px;top:18px;transform:scale(1.2)}}
+
+/* PokéDexion item encyclopedia */
+.itemdex .item-category-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:17px 0}
+.itemdex .item-category-tabs button{border:1px solid #383A43;border-radius:9px;background:#17191F;color:#C9CBD2;padding:10px 13px;font-size:11px;cursor:pointer}
+.itemdex .item-category-tabs button.active{border-color:#E53935;background:#3A1B20;color:#FFF}
+.itemdex .item-count{font-size:11px;color:#9398A5;margin:10px 0 17px}
+.itemdex .item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:11px}
+.itemdex .item-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;min-width:0;padding:12px 10px 15px;border:1px solid #33363F;border-radius:12px;background:#16191F;color:#F5F5F5;cursor:pointer;transition:border-color .15s,transform .15s}
+.itemdex .item-card:hover{border-color:#E53935;transform:translateY(-2px)}
+.itemdex .item-card-num{align-self:flex-start;color:#8D92A0;font-size:10px}
+.itemdex .item-card-image{display:flex;align-items:center;justify-content:center;height:78px;width:100%;background:radial-gradient(circle,#292C34 0%,#16191F 70%);border-radius:9px}
+.itemdex .item-card-image img{width:62px;height:62px;object-fit:contain;image-rendering:pixelated}
+.itemdex .item-image-placeholder{font-size:35px;color:#8D92A0}
+.itemdex .item-card strong{font-size:12px;overflow-wrap:anywhere}
+.itemdex .item-card-category{font-size:10px;color:#9A9DA7}
+.itemdex .item-card>svg{position:absolute;right:10px;top:11px;color:#858996}
+.itemdex .item-detail-hero{display:flex;align-items:center;gap:25px;padding:25px;background:linear-gradient(110deg,#2A1B20,#16191F 75%);border:1px solid #433139;border-radius:15px;margin:14px 0}
+.itemdex .item-detail-hero h1{font-size:clamp(24px,4vw,42px);margin:9px 0 14px}
+.itemdex .item-detail-sprite{width:140px;height:140px;display:flex;align-items:center;justify-content:center;flex:none;background:#17191F;border:1px solid #3D343B;border-radius:16px}
+.itemdex .item-detail-sprite img{width:110px;height:110px;object-fit:contain;image-rendering:pixelated}
+.itemdex .item-category-label{display:inline-block;background:#E53935;color:#FFF;padding:7px 10px;border-radius:7px;font-size:11px}
+.itemdex .item-detail-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+.itemdex .item-detail-facts>div{padding:16px;background:#17191F;border:1px solid #34363F;border-radius:10px;display:flex;flex-direction:column;gap:10px}
+.itemdex .item-detail-facts small{color:#A2A5B1;font-size:10px}
+.itemdex .item-detail-facts strong{font-size:13px;overflow-wrap:anywhere}
+.itemdex .item-detail-description{padding:18px;margin:15px 0;line-height:1.7;color:#E1E2E7}
+.itemdex .item-detail-description h3{font-size:13px;margin:18px 0 7px}
+.itemdex .item-held-pokemon{display:flex;flex-wrap:wrap;gap:8px}
+.itemdex .item-held-pokemon span{padding:6px 9px;border-radius:7px;background:#282A32;font-size:11px}
+@media(max-width:600px){.itemdex .item-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.itemdex .item-detail-hero{gap:13px;padding:14px}.itemdex .item-detail-sprite{width:90px;height:90px}.itemdex .item-detail-sprite img{width:75px;height:75px}.itemdex .item-detail-facts{grid-template-columns:1fr}.itemdex .item-category-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:7px}.itemdex .item-category-tabs button{white-space:nowrap}}
